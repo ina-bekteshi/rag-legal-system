@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "rag-legal-system",
+			"path": "."
+		},
+		{
+			"name": ".venv",
+			"path": "../.venv"
+		}
+	],
+	"settings": {}
+}

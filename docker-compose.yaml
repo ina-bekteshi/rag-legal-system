@@ -8,16 +8,29 @@ services:
       QUERY_DEFAULTS_LIMIT: 25
       AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
       PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
-      # ENABLE THE TRANSFORMERS MODULE
       ENABLE_MODULES: 'text2vec-transformers'
       DEFAULT_VECTORIZER_MODULE: 'text2vec-transformers'
       TRANSFORMERS_INFERENCE_API: 'http://t2v-transformers:8080'
+      CLUSTER_HOSTNAME: 'node1'
     volumes:
       - ./weaviate_data:/var/lib/weaviate
-  
+    depends_on:
+      - t2v-transformers
+
   t2v-transformers:
-    # This image contains the actual model. 
-    # 'multi-qa-MiniLM-L6-cos-v1' is fast and works well for QA.
     image: cr.weaviate.io/semitechnologies/transformers-inference:sentence-transformers-paraphrase-multilingual-MiniLM-L12-v2
     environment:
       ENABLE_CUDA: 0 # Set to 1 if you have an NVIDIA GPU
+
+  app:
+    build: .
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    environment:
+      WEAVIATE_HOST: weaviate
+      WEAVIATE_PORT: 8080
+    depends_on:
+      - weaviate
+    restart: on-failure

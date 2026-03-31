@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Juristi | Asistenti Inteligjent Ligjor OJQ</title>
+    <!-- Modern Typography Font: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    
+    <div class="blob-gradient-top"></div>
+    <div class="blob-gradient-bottom"></div>
+
+    <div class="app-container">
+        <!-- Sidebar / Header Area -->
+        <header class="chat-header">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m12 14 4-4"></path>
+                        <path d="M3.34 19a10 10 0 1 1 17.32 0"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1>E-Juristi</h1>
+                    <span class="status-indicator">●</span> <span class="status-text">Gati për pyetje ligjore në kohë reale</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="clear-chat" class="icon-btn" title="Pastro bisedën">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Chat Area -->
+        <main class="chat-window">
+            <div id="chat-messages" class="messages-container">
+                <!-- Welcome Message -->
+                <div class="message bot-message entry-anim">
+                    <div class="avatar bot-avatar">EJ</div>
+                    <div class="message-content">
+                        <p>Përshëndetje! Unë jam <strong>E-Juristi</strong>. Jam një model i inteligjencës artificiale, i trajnuar mbi Kushtetutën e Republikës së Shqipërisë (KushtetutaV3).</p>
+                        <p>Mund të më bëni pyetje si:<br/>
+                        <em>"Çfarë thotë Neni 19 i Kushtetutës së Shqipërisë?"</em> ose <br/>
+                        <em>"Cilat janë të drejtat bazë të njeriut sipas ligjit?"</em>.</p>
+                        <p>Si mund t'ju ndihmoj sot?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typing Indicator (Hidden by default) -->
+            <div id="typing-indicator" class="typing-container hidden">
+                <div class="avatar bot-avatar">EJ</div>
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="typing-text">Duke u menduar...</span>
+            </div>
+        </main>
+
+        <!-- Input Area -->
+        <footer class="chat-input-area">
+            <form id="chat-form" class="input-form">
+                <textarea 
+                    id="user-input" 
+                    placeholder="Bëj pyetjen tënde për Kushtetutën këtu..." 
+                    rows="1" 
+                    required></textarea>
+                <button type="submit" id="send-btn" class="send-btn" disabled>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 2 11 13"></polyline>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
+            <div class="footer-note">
+                AI mund të bëjë gabime. Ju lutem, kontrolloni dispozitat para përdorimit zyrtar.
+            </div>
+        </footer>
+    </div>
+
+    <!-- Script that powers the frontend -->
+    <script src="/static/script.js"></script>
+</body>
+</html>

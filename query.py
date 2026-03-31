@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.embeddings import FakeEmbeddings
-from langchain_groq import ChatGroq, data  # New Groq Import
+from langchain_groq import ChatGroq
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings # Local Free Embeddings
 from langchain_core.prompts import PromptTemplate
